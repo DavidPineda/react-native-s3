@@ -75,6 +75,7 @@ public class RNS3TransferUtility extends ReactContextBaseJavaModule {
     taskMap.putString("state", task.getState().toString().toLowerCase());
     taskMap.putDouble("bytes", task.getBytesTransferred());
     taskMap.putDouble("totalBytes", task.getBytesTotal());
+    taskMap.putDouble("path", task.getAbsoluteFilePath());
     return taskMap;
   }
 
@@ -186,10 +187,7 @@ public class RNS3TransferUtility extends ReactContextBaseJavaModule {
       s3 = new AmazonS3Client(credentialsProvider);
     }
     s3.setRegion(region);
-    s3.setS3ClientOptions(S3ClientOptions.builder()
-      // .setPathStyleAccess(true)
-      .setAccelerateModeEnabled(enabledAccelerate)
-      .build());
+    s3.setS3ClientOptions(S3ClientOptions.builder().setAccelerateModeEnabled(enabledAccelerate).build());
     transferUtility = new TransferUtility(s3, context);
     return true;
   }
