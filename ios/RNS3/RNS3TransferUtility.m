@@ -4,6 +4,7 @@
 static NSMutableDictionary *nativeCredentialsOptions;
 static bool alreadyInitialize = false;
 static bool enabledProgress = true;
+static bool enabledAccelerate = false;
 static NSString* instanceKey = @"RNS3TransferUtility";
 
 @interface RNS3TransferUtility ()
@@ -161,6 +162,11 @@ RCT_EXPORT_METHOD(setupWithCognito: (NSDictionary *)options resolver:(RCTPromise
 
 RCT_EXPORT_METHOD(enableProgressSent: (BOOL)enabled resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
   enabledProgress = enabled;
+  resolve(@YES);
+}
+
+RCT_EXPORT_METHOD(enabledAccelerateMode: (BOOL)enabled resolver:(RCTPromiseResolveBlock)resolve rejecter:(RCTPromiseRejectBlock)reject) {
+  enabledAccelerate = enabled;
   resolve(@YES);
 }
 

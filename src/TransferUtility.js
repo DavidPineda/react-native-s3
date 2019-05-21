@@ -15,7 +15,7 @@ const defaultCognitoOptions = {
 };
 const storeKey = "@_RNS3_Tasks_Extra";
 /*
- * taskExtra: 
+ * taskExtra:
  *	 [id]:
  *		 iOS: { bucket, key, state, bytes, totalBytes }
  *		 Android: { bucket, key, bytes }
@@ -128,6 +128,10 @@ export default class TransferUtility {
 
 	enableProgressSent(enabled) {
 		return RNS3TransferUtility.enableProgressSent(enabled);
+	}
+
+	enabledAccelerateMode(enabled) {
+		return RNS3TransferUtility.enabledAccelerateMode(enabled);
 	}
 
 	async upload(options = {}, others = {}) {

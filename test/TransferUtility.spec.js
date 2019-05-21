@@ -12,6 +12,7 @@ NativeModules.RNS3TransferUtility = {
 	setupWithBasic: r => r,
 	setupWithCognito: r => r,
 	enableProgressSent: () => {},
+	enabledAccelerateMode: () => {},
 	upload: () => {
 		const task = {
 			id: nextTaskId++,
