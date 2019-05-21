@@ -75,7 +75,6 @@ public class RNS3TransferUtility extends ReactContextBaseJavaModule {
     taskMap.putString("state", task.getState().toString().toLowerCase());
     taskMap.putDouble("bytes", task.getBytesTransferred());
     taskMap.putDouble("totalBytes", task.getBytesTotal());
-    taskMap.putDouble("path", task.getAbsoluteFilePath());
     return taskMap;
   }
 
