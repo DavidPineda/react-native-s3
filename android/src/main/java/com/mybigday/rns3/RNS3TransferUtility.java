@@ -46,7 +46,7 @@ public class RNS3TransferUtility extends ReactContextBaseJavaModule {
 
   private static boolean alreadyInitialize = false;
   private static boolean enabledProgress = true;
-  private static boolean enabledAccelerate = false;
+  private static boolean enabledAccelerate = true;
   private Context context;
   private AmazonS3 s3;
   private TransferUtility transferUtility;
