@@ -46,7 +46,6 @@ public class RNS3TransferUtility extends ReactContextBaseJavaModule {
 
   private static boolean alreadyInitialize = false;
   private static boolean enabledProgress = true;
-  private static boolean enabledAccelerate = true;
   private Context context;
   private AmazonS3 s3;
   private TransferUtility transferUtility;
@@ -186,6 +185,7 @@ public class RNS3TransferUtility extends ReactContextBaseJavaModule {
       s3 = new AmazonS3Client(credentialsProvider);
     }
     s3.setRegion(region);
+    boolean enabledAccelerate = (Boolean) credentialsOptions.get("enabled_accelerate");
     s3.setS3ClientOptions(S3ClientOptions.builder().setAccelerateModeEnabled(enabledAccelerate).build());
     transferUtility = new TransferUtility(s3, context);
     return true;
@@ -232,12 +232,6 @@ public class RNS3TransferUtility extends ReactContextBaseJavaModule {
   @ReactMethod
   public void enableProgressSent(boolean enabled, Promise promise) {
     enabledProgress = enabled;
-    promise.resolve(true);
-  }
-
-  @ReactMethod
-  public void enabledAccelerateMode(boolean enabled, Promise promise) {
-    enabledAccelerate = enabled;
     promise.resolve(true);
   }
 

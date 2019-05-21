@@ -130,10 +130,6 @@ export default class TransferUtility {
 		return RNS3TransferUtility.enableProgressSent(enabled);
 	}
 
-	enabledAccelerateMode(enabled) {
-		return RNS3TransferUtility.enabledAccelerateMode(enabled);
-	}
-
 	async upload(options = {}, others = {}) {
 		const opts = snakeCaseKeys(options);
 		opts.meta = opts.meta || {};
